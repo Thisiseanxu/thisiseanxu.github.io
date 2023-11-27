@@ -1,0 +1,504 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb" lang=
+"en-gb">
+<head>
+    <meta name="style" content="cs" />
+    <title>University of Bristol - Computer Science - COMS20008 Computer Systems A</title>
+    <link rel="stylesheet" type="text/css" href="corporate.css" />
+    <link rel="stylesheet" type="text/css" href="uob.css" />
+    <script language="javascript">
+
+     //LAYOUT CUSTOMIZATION
+     var currentWeek   = 13;                         // current week [triggers full week visibility, starting with 1, usually going up to 12]
+     var startWeekNum  = 0;                         // start week number [usual start is prepartion week 1]
+     var totalWeeks    = 13;                        // total teaching weeks for unit [usually 12] - 5
+     var activityNum   = 10;                         // number of activities per week (empty slots possible) - 5
+     var columnNum     = 5;                         // desired columns per week (yet, autofitted to max 2 rows per week)
+     var title         = "Computer Systems A";  // content title at top of the table
+     var headerOn      = 1;                         // table column headers on(=1) or off(=0), min of 4 columns needed to render
+     var header1       = "Synchronous Sessions";    // leftmost 1x column header
+     var header2       = "Asynchronous Materials";  // middle 2x column header
+     var header3       = "Courseworks &amp; Labs";  // rest of the columns header
+     var inactColour   = "#999999";                 // font colour for inactive content
+     var titleColour   = "#191919";                 // table title colour
+     var titleBColour  = "#BBBBBB";                 // table title background colour
+     var bkgColour     = "#CCCCCC";                 // table border background colour
+     var embossColour  = "#AAAAAA";                 // table border emboss colour
+     var fontSizePix   = 12;                        // font size in pixels
+     var extendCats = ["8", "10", "14"]; // number of categories that have no border to above cell (e.g. for multi-week coursework)
+
+     //ACTIVITY CATEGORIES
+     var y = [
+         ["0",  "Concurrency Lecture",                    "#D2CDF4", "1", "",          "Videos",    ],
+         ["1",  "Distributed Systems Lecture",            "#B8D2F4", "1", "",          "Content",   ],
+         ["2",  "Concurrency Lab",                        "#EFBD81", "1", "Solutions", "",          ],
+         ["3",  "Distributed Systems Lab",                "#FED872", "1", "Solutions", "",          ],
+         ["4",  "Live Q&amp;A",                           "#B3EA9A", "1", "Recording", "",          ],
+         ["5",  "Preparation",                            "#DDDDDD", "0", "",          "",          ],
+         ["6",  "Formative Coursework",                   "#EEEEDD", "1", "",          "Materials", ],
+         ["7",  "Coursework Lab",                         "#EEEEDD", "1", "",          "",          ],
+         ["8",  "Coursework Continued",                   "#EEEEDD", "0", "",          "",          ], // Joining box for coursework over two rows
+         ["9",  "",                                       "#CCCCCC", "0", "",          "",          ], // Grey box
+         ["10", "",                                       "#CCCCCC", "0", "",          "",          ], // Grey box with no top border
+         ["11", "Join Microsoft Teams",                   "#DDDDDD", "0", "Link",      "",          ],
+         ["12", "Laptop Setup",                           "#DDDDDD", "0", "Link",      "",          ],
+         ["13", "Pair Signup",                            "#DDDDDD", "0", "Link",      "",          ],
+         ["14", "",                                       "#EFBD81", "0", "",          "",          ], // joining box for concurrency lab over two rows
+         ["15", "",                                       "#D2CDF4", "0", "",          "",          ], // Joining box for concurrency lecture over two rows
+         ["16", "Intro to Go",                            "#D9ABAB", "1", "Solutions", "",          ],
+	     ["17", "Concurrency Lecture Short",              "#cce6ff", "1", "",          "Videos",    ],
+	     ["18", "Navigating the Unit",                    "#DDDDDD", "0", "",          "Videos",    ],
+	     ["19", "All videos on Microsoft Stream channel", "#DDDDDD", "0", "Link",      "",          ],
+	     ["20", "",                                       "#FED872", "0", "",          "",          ],// joining box for distributed lab over two rows
+		 ["21",  "Live Q&amp;A links and Lab 1 and Lab 2 Links",  "#DDDDDD", "0", "",          "Links",    ],
+		 ["22",  "Coursework Reading",                         "#EEEEDD", "1", "",          "",          ],
+		["23", "Link to Blackboard Announcements",                            "#DDDDDD", "0", "Link",      "",          ],
+     ];
+
+
+     var a = [
+         //WEEKLY ACTIVITIES
+         //Category, DATE|TIME, ACTIVITY TITLE, ACTIVITY URL, SLIDES URL, MATERIAL array
+
+         // Week 00
+         ["9","","","","",[]],
+         ["18","","Guide to getting started","https://www.ole.bris.ac.uk/bbcswebdav/courses/COMS20008_2022_TB-1/CONTENT_2022/OTHER/COMS20008navigatingunit21.pdf","",[5]],
+         ["11","","","","https://teams.microsoft.com/l/team/19%3aecaa5d359adf45e4bc4a4914801294df%40thread.tacv2/conversations?groupId=b48b81f3-96e8-4540-8284-0b84e55a6e85&tenantId=b2e47f30-cd7d-4a4e-a5da-b18cf1a4151b",[]], // Add link
+         ["12","","","","https://github.com/UoB-CSA/setup-guides",[]],
+         ["13","","","","https://doodle.com/poll/z39z6ir5in33h5pi?utm_source=poll&utm_medium=link",[]], // Add link
+	 ["9","","","","",[]],	    
+["23","","","","https://www.ole.bris.ac.uk/webapps/blackboard/content/launchLink.jsp?course_id=_247718_1&tool_id=_132_1&tool_type=TOOL&mode=view&mode=reset",[]], // Add link
+	     ["9","","","","",[]],
+         ["9","","","","",[]],
+	     ["9","","","","",[]],
+
+         // Week 01
+         ["4","29/9/22 | 12:00pm | MVB 1.11/1.11(A)","","","https://web.microsoftstream.com/video/79c4b84a-3eaa-4305-9135-9cb4cf48fa0a",[]],
+         ["0","","Introduction & History","https://www.ole.bris.ac.uk/bbcswebdav/courses/COMS20008_2022_TB-1/CONTENT_2022/LecturePDFs/coms20008sh01.pdf","",[0,1]],
+         ["0","","Towards Concurrent Programming","https://www.ole.bris.ac.uk/bbcswebdav/courses/COMS20008_2022_TB-1/CONTENT_2022/LecturePDFs/coms20008sh02.pdf","",[3,4]],
+         ["16","27/9/22 | 3:00pm | MVB 2.11", "Lab 1","https://github.com/UoB-CSA/intro-to-go-lab-1", "https://www.ole.bris.ac.uk/bbcswebdav/courses/COMS20008_2022_TB-1/CONTENT_2022/solutions/lab1.zip", []],
+         ["16","30/9/22 | 3:00pm | MVB 2.11","Lab 2","https://github.com/UoB-CSA/intro-to-go-lab-2","https://www.ole.bris.ac.uk/bbcswebdav/courses/COMS20008_2022_TB-1/CONTENT_2022/solutions/lab2.zip", []],
+         ["9","","","","",[]],
+         ["17","","Producer Consumer at high Level","https://www.ole.bris.ac.uk/bbcswebdav/courses/COMS20008_2022_TB-1/CONTENT_2022/LecturePDFs/ProducerConsumerProblemComs20008.pdf","",[2]],
+	     ["17","","Select and Timers","https://www.ole.bris.ac.uk/bbcswebdav/courses/COMS20008_2022_TB-1/CONTENT_2022/LecturePDFs/coms20008_SelectAndTimers.pdf","",[6]],
+	     ["9","","","","",[]],
+         ["9","","","","",[]],
+
+
+         // Week 02
+         ["4","6/10/22 | 12:00pm | MVB 1.11/1.11(A)","","","https://web.microsoftstream.com/video/64fbf670-f74e-476a-b6df-b4792b1fbbbf",[]],
+         ["0","","Deadlock & Channel Communication","https://www.ole.bris.ac.uk/bbcswebdav/courses/COMS20008_2022_TB-1/CONTENT_2022/LecturePDFs/coms20008sh03.pdf","",[7,8]],
+         ["1","","Introduction to Distributed Systems","","",[10,20,11,21,12]],
+         ["2","4/10/22 | 3:00pm | MVB 2.11","Median Filter & Parallel Tree Reduction","https://github.com/UoB-CSA/concurrency-lab-1","https://www.ole.bris.ac.uk/bbcswebdav/courses/COMS20008_2022_TB-1/CONTENT_2022/solutions/conc_lab1.zip",[]],
+         ["3","7/10/22 | 3:00pm | MVB 2.11","Chat server","https://github.com/UoB-CSA/distributed-lab-1","https://www.ole.bris.ac.uk/bbcswebdav/courses/COMS20008_2022_TB-1/CONTENT_2022/solutions/dist_lab-1.zip",[]],
+	     ["9","","","","",[]],
+         ["9","","","","",[]],
+	     ["9","","","","",[]],
+         ["9","","","","",[]],
+	     ["9","","","","",[]],
+
+
+         // Week 03
+         ["4","13/10/22 | 12:00pm | MVB 1.11/1.11(A)","","","https://web.microsoftstream.com/video/6becffbd-24c8-4ecb-ad9d-222fd543f8cc",[]],
+         ["0","","Sharing Memory, Locks, semaphores, suspension and Critical Sections ","https://www.ole.bris.ac.uk/bbcswebdav/courses/COMS20008_2022_TB-1/CONTENT_2022/LecturePDFs/coms20008sh05.pdf","",[13, 14]],
+         ["1","","Remote Invocation","","",[17,22,18,23,19]],
+         ["2","11/10/22 | 3:00pm | MVB 2.11","Producer Consumer & The Bank","https://github.com/UoB-CSA/concurrency-lab-2","https://www.ole.bris.ac.uk/bbcswebdav/courses/COMS20008_2022_TB-1/CONTENT_2022/solutions/con_lab2.zip",[]],
+         ["3","14/10/22 | 3:00pm | MVB 2.11","Secret Strings & Bottles","https://github.com/UoB-CSA/distributed-lab-2","https://www.ole.bris.ac.uk/bbcswebdav/courses/COMS20008_2022_TB-1/CONTENT_2022/solutions/dis_lab-2.zip",[]],
+	     ["9","","","","",[]],
+         ["0","","Sharing Memory: mutexes and critical sections completed, producer consumer in detail with sempahores","https://www.ole.bris.ac.uk/bbcswebdav/courses/COMS20008_2022_TB-1/CONTENT_2022/LecturePDFs/coms20008sh06.pdf","",[15, 16]],
+	     ["9","","","","",[]],
+         ["9","","","","",[]],
+	     ["9","","","","",[]],
+
+         // Week 04
+         ["4","20/10/22 | 12:00pm | MVB 1.11/1.11(A)","","","https://web.microsoftstream.com/video/64e910d7-4908-4449-8580-3bc451908c79",[]],
+         ["0","","Sharing memory, locks, critical sections, condition variables and example application","https://www.ole.bris.ac.uk/bbcswebdav/courses/COMS20008_2022_TB-1/CONTENT_2022/LecturePDFs/coms20008sh07.pdf","",[28,29,30]],
+         ["1","","Indirect Communication","","",[24,25,26,27]],
+         ["14","18/10/22 | 3:00pm | MVB 2.11","Bank Continued","https://github.com/UoB-CSA/concurrency-lab-2","",[]],
+         ["20","21/10/22 | 3:00pm | MVB 2.11","Secret Strings & Bottles [continued]","https://github.com/UoB-CSA/distributed-lab-2","",[]],
+	     ["9","","","","",[]],
+         ["17","","COMS20008, Lecture 6, Trailer","https://www.ole.bris.ac.uk/bbcswebdav/courses/COMS20008_2022_TB-1/CONTENT_2022/LecturePDFs/coms20008sh07.pdf","",[31]],
+	     ["9","","","","",[]],
+         ["9","","","","",[]],
+	     ["9","","","","",[]],
+
+         // Week 05
+         ["4","27/10/22 | 12:00pm | MVB 1.11/1.11(A)","","","https://web.microsoftstream.com/video/5a205062-354f-4b63-9355-1a893d40e662",[]],
+         ["0","","Inter Process Data Exchange in Go","https://www.ole.bris.ac.uk/bbcswebdav/courses/COMS20008_2022_TB-1/CONTENT_2022/LecturePDFs/coms20008sh04.pdf","",[36]],
+         ["1","","Global State","","",[32,33,34,35]],
+         ["2","25/10/22 | 3:00pm | MVB 2.11","Posix Threads in C","https://github.com/UoB-CSA/concurrency-lab-3","https://www.ole.bris.ac.uk/bbcswebdav/courses/COMS20008_2022_TB-1/CONTENT_2022/solutions/conc_lab3.zip",[]],
+         ["3","28/10/22 | 3:00pm | MVB 2.11","Message Broker in Go","https://github.com/UoB-CSA/distributed-lab-3", "https://www.ole.bris.ac.uk/bbcswebdav/courses/COMS20008_2022_TB-1/CONTENT_2022/solutions/dist_lab-3.zip",[]],
+	     ["9","","","","",[]],
+         ["9","","","","",[]],
+	     ["9","","","","",[]],
+         ["9","","","","",[]],
+	     ["9","","","","",[]],
+
+		// Week 06
+         ["9","","","","",[]],
+         ["9","","","","",[]],
+         ["9","","","","",[]],
+         ["22","","Game of Life","https://github.com/UoB-CSA/gol-skeleton","",[]],
+	     ["22","","Game of Life","https://github.com/UoB-CSA/gol-skeleton","",[]],
+		 ["9","","","","",[]],
+         ["9","","","","",[]],
+	     ["9","","","","",[]],
+         ["9","","","","",[]],
+	     ["9","","","","",[]],
+
+         // Week 07
+         ["4","10/11/22 | 12:00pm | MVB 1.11/1.11(A)","","","https://web.microsoftstream.com/video/b0d6ed07-4ad9-41d3-8528-d409602b0dee",[]],
+         ["0","","Communicating Sequential Processes (CSP) Abstraction: Events, Processes, Traces and Refinement","https://www.ole.bris.ac.uk/bbcswebdav/courses/COMS20008_2022_TB-1/CONTENT_2022/LecturePDFs/coms20008_CSP1.pdf","",[37, 38]],
+         ["1","","Logical Time","","",[45,46,47,48]],
+         ["7","8/11/22 | 3:00pm | MVB 2.11","Game of Life","https://github.com/UoB-CSA/gol-skeleton","",[]],
+         ["7","11/11/22 | 3:00pm | MVB 2.11","Game of Life","https://github.com/UoB-CSA/gol-skeleton","",[]],
+	     ["9","","","","",[]],
+         ["9","","","","",[]],
+	     ["9","","","","",[]],
+         ["9","","","","",[]],
+	     ["9","","","","",[]],
+
+         // Week 08
+         ["4","17/11/22 | 12:00pm | MVB 1.11/1.11(A)","","","",[]],
+         ["0","","CSP: Choice, Refusals, Failures","https://www.ole.bris.ac.uk/bbcswebdav/courses/COMS20008_2022_TB-1/CONTENT_2022/LecturePDFs/coms20008_CSP2.pdf","",[39, 40]],
+         ["1","","Leaders & Synchronisers","","",[49,50,51,52]],
+         ["7","15/11/22 | 3:00pm | MVB 2.11","Game of Life","https://github.com/UoB-CSA/gol-skeleton","",[]],
+         ["7","18/11/22 | 3:00pm | MVB 2.11","Game of Life","https://github.com/UoB-CSA/gol-skeleton","",[]],
+	     ["9","","","","",[]],
+         ["9","","","","",[]],
+	     ["9","","","","",[]],
+         ["9","","","","",[]],
+	     ["9","","","","",[]],
+
+         // Week 09
+         ["4","24/11/22 | 12:00pm | MVB 1.11/1.11(A)","","","",[]],
+         ["0","","CSP: External vs Internal Choice, Deadlock, Livelock","https://www.ole.bris.ac.uk/bbcswebdav/courses/COMS20008_2022_TB-1/CONTENT_2022/LecturePDFs/coms20008_CSP3.pdf","",[41, 42]],
+         ["1","","Spanning Trees","","",[53,54,55,56]],
+         ["7","22/11/22 | 3:00pm | MVB 2.11","Game of Life","https://github.com/UoB-CSA/gol-skeleton","",[]],
+         ["7","25/11/22 | 3:00pm | MVB 2.11","Game of Life","https://github.com/UoB-CSA/gol-skeleton","",[]],
+	     ["9","","","","",[]],
+         ["9","","","","",[]],
+	     ["9","","","","",[]],
+         ["9","","","","",[]],
+	     ["9","","","","",[]],
+
+         // Week 10
+         ["4","1/12/22 | 12:00pm | MVB 1.11/1.11(A)","","https://web.microsoftstream.com/video/7a1f29aa-dc16-4135-8aae-0839e8552ba0","",[]],
+         ["0","","Introduction to Petri Nets","https://www.ole.bris.ac.uk/bbcswebdav/courses/COMS20008_2022_TB-1/CONTENT_2022/LecturePDFs/coms20008_PetriNets.pdf","",[43, 44]],
+         ["1","","Consensus","","",[57,58,59,60]],
+         ["7","29/11/22 | 3:00pm | MVB 2.11","Game of Life","https://github.com/UoB-CSA/gol-skeleton","",[]],
+         ["7","2/12/22 | 3:00pm | MVB 2.11","Game of Life","https://github.com/UoB-CSA/gol-skeleton","",[]],
+	     ["9","","","","",[]],
+         ["9","","","","",[]],
+	     ["9","","","","",[]],
+         ["9","","","","",[]],
+	     ["9","","","","",[]],
+
+         // Week 11
+         ["4","8/12/22 | 12:00pm | MVB 1.11/1.11(A)","","","https://web.microsoftstream.com/video/172c9675-da30-4252-9aa3-e700ed3d7f2b",[]],
+         ["9","","","","",[]],
+	     ["9","","","","",[]],
+		 ["20","6/12/22 | 3:00pm | MVB 2.11","Practice Qns for Sion's bit","https://www.ole.bris.ac.uk/bbcswebdav/courses/COMS20008_2022_TB-1/CONTENT_2022/OTHER/PracticeQns.pdf","",[]],
+		  ["9","","","","",[]],
+	     ["9","","","","",[]],
+         ["9","","","","",[]],
+	     ["9","","","","",[]],
+         ["9","","","","",[]],
+	     ["9","","","","",[]],
+		 
+		 // Week 12
+         ["4","15/12/22 | 12:00pm | MVB 1.11/1.11(A)","","","https://web.microsoftstream.com/video/5082ef22-9706-4cc6-9ead-a72df8e05ae2",[]],
+         ["9","","","","",[]],
+	     ["9","","","","",[]],
+		 ["20","13/12/22 | 3:00pm | MVB 2.11","All practice materials including Mock Exam","https://www.ole.bris.ac.uk/bbcswebdav/courses/COMS20008_2022_TB-1/CONTENT_2022/OTHER/ALL_PRACTICE_MATERIALS.zip","",[]],
+		  ["9","","","","",[]],
+	     ["9","","","","",[]],
+         ["9","","","","",[]],
+	     ["9","","","","",[]],
+         ["9","","","","",[]],
+	     ["9","","","","",[]],
+
+     ];
+
+     var files = [
+         //UNIT RESOURCES & MATERIALS
+         [  "0", "https://web.microsoftstream.com/video/28fb0c42-0248-4039-9e9c-5fc269e33e6b",           "Part 1, Introduction"],
+         [  "1", "https://web.microsoftstream.com/video/bb61824b-4c7b-4fef-aabd-69537c5d082b",             "Part 2, History"],
+         [  "2", "https://web.microsoftstream.com/video/c6477e27-c075-4354-8454-9037022f2714",             "Producer Consumer Problem"],
+	     [  "3", "https://web.microsoftstream.com/video/255fda08-f9fb-420c-ba9f-7f3abde3a1d1",             "Part 1 (Conceptual)"],
+         [  "4", "https://web.microsoftstream.com/video/12907acc-73b7-46c9-b487-556142f19b08",          "Part 2 (Go syntax)"],
+         [  "5", "https://web.microsoftstream.com/video/2b3c6cae-60ac-46c6-ad21-3a9c3c451d73",         "Navigating the unit"],
+         [  "6", "https://web.microsoftstream.com/video/19be5e1d-15ab-4a1b-adfe-d92431391c08",       "here"],
+         [  "7", "https://web.microsoftstream.com/video/07ff1919-0119-4059-b7ec-5f877afb9a00",           "Lec 3, Part 1"],
+         [  "8", "https://web.microsoftstream.com/video/65fe9ca1-7db4-4954-bb20-0cab75ae8c30",     "Lec 3, Part 2"],
+         [  "9", "grade.c",             "grade.c"],
+         [  "10", "https://web.microsoftstream.com/video/c9c93752-6dc7-4c9e-89af-68851690c2d0",    "Introduction to Distributed Computing"],
+         [  "11", "https://web.microsoftstream.com/video/338e4676-e41b-47b6-940d-a8505c4a38e9",    "Networks & Models"],
+         [  "12", "https://web.microsoftstream.com/video/1d1540c8-7aed-40d8-8d98-b439c97723ce",    "Message Passing in Go"],
+	     [  "13", "https://web.microsoftstream.com/video/c184bc49-949f-45fd-a1e7-b57059d62e9e",    "Memory sharing, locks etc. Part 1"],
+	     [  "14", "https://web.microsoftstream.com/video/5489c990-2deb-4426-b818-8807fd8ce52e",    "Memory sharing, locks etc. Part 2"],
+	     [  "15", "https://web.microsoftstream.com/video/00210dc4-317a-45cd-9321-28eabf8c296d",    "Part 1: Memory sharing and mutexes completed"],
+	     [  "16", "https://web.microsoftstream.com/video/f6a22973-3012-4e2c-818f-86bedaed9c84",    "Part 2: Producer Consumer with semaphores"],
+         [  "17", "https://web.microsoftstream.com/video/fb3ca890-3e4f-43d3-ae88-4a4b2267e502", "UDP & TCP"],
+         [  "18", "https://web.microsoftstream.com/video/71ceb3b6-cc6e-4ba4-bbf8-66bdad35a86f?channelId=78f83e21-c374-4fe8-bf6a-3e33387f5032", "Remote Procedure Calls"],
+         [  "19", "https://web.microsoftstream.com/video/0397b659-b124-4301-a27d-b2385111b693", "RPC in Go"],
+         [ "20", "https://www.ole.bris.ac.uk/bbcswebdav/courses/COMS20008_2022_TB-1/CONTENT_2022/LecturePDFs/coms20008me01.pdf",  "Introduction to Distributed Computing [slides]"],
+         [ "21", "https://www.ole.bris.ac.uk/bbcswebdav/courses/COMS20008_2022_TB-1/CONTENT_2022/LecturePDFs/coms20008me02.pdf",  "Networks & Models [slides]"],
+         [ "22", "https://www.ole.bris.ac.uk/bbcswebdav/courses/COMS20008_2022_TB-1/CONTENT_2022/LecturePDFs/coms20008me03.pdf",  "UDP & TCP [slides]"],
+         [ "23", "https://www.ole.bris.ac.uk/bbcswebdav/courses/COMS20008_2022_TB-1/CONTENT_2022/LecturePDFs/coms20008me04.pdf",  "Remote Procedure Calls [slides]"],
+         [ "24", "https://web.microsoftstream.com/video/f35605d8-1357-4f66-aaef-2343e91a3417", "The Publish-Subscribe Model"],
+         [ "25", "https://www.ole.bris.ac.uk/bbcswebdav/courses/COMS20008_2022_TB-1/CONTENT_2022/LecturePDFs/coms20008me05.pdf",  "The Publish-Subscribe Model [slides]"],
+         [ "26", "https://web.microsoftstream.com/video/e6fd2695-60b1-4a30-89c1-560529dbc4b3", "Distributed Shared Memory"],
+         [ "27", "https://www.ole.bris.ac.uk/bbcswebdav/courses/COMS20008_2022_TB-1/CONTENT_2022/LecturePDFs/coms20008me06.pdf",  "Distributed Shared Memory [slides]"],
+	     [  "28", "https://web.microsoftstream.com/video/c8e1e267-05f4-4900-acc2-e5d9ae2c0a91",    "Critical section, mutex and semaphore recap"],
+	     [  "29", "https://web.microsoftstream.com/video/b21a6dfa-62b8-49b1-8347-94d0acca273b",    "Condition variables in full detail"],
+	     [  "30", "https://web.microsoftstream.com/video/91456340-04fb-44ea-9f42-332c0995ed1e",    "Real-ish world example: semaphores for mutliple client server application"],
+	     [  "31", "https://web.microsoftstream.com/video/456020d4-3f97-4dcf-a4e9-88131d7d7bf7",    "COMS20008, Lecture 6, Trailer"],
+         [  "32", "https://web.microsoftstream.com/video/3296b1d2-5924-4f96-ba47-8e318f406c8f",  "Consistent Global State"],
+         [  "33", "https://www.ole.bris.ac.uk/bbcswebdav/courses/COMS20008_2022_TB-1/CONTENT_2022/LecturePDFs/coms20008me07.pdf", "Consistent Global State [slides]"],
+         [  "34", "https://web.microsoftstream.com/video/7fba8b5e-50cf-425f-9f72-0d02ce9171b5",  "Chandy-Lamport Snapshotting Algorithm"],
+         [  "35", "https://www.ole.bris.ac.uk/bbcswebdav/courses/COMS20008_2022_TB-1/CONTENT_2022/LecturePDFs/coms20008me08.pdf", "Chandy-Lamport Snapshotting Algorithm [slides]"],
+         [  "36", "https://web.microsoftstream.com/video/0e244a74-f926-44bf-9657-046c8af3c999",    "Channels and goroutines under the hood"],
+         [  "37", "https://web.microsoftstream.com/video/619a1515-e2e7-426a-acbf-bf8afc6c56a9",    "CSP intro, processes, prefixing, recursion, DFA vs process"],
+         [  "38", "https://web.microsoftstream.com/video/70755856-d218-43c0-90a5-4c54e8d2e578",    "Traces, trace refinement, safety, alphabetised parallel"],
+         [  "39", "https://web.microsoftstream.com/video/f4b27b8e-c128-4a54-83e1-e67aee3bc3ef",    "Specification via trace refinement, deadlock, cardinality of state spaces, prefix closure"],
+         [  "40", "https://web.microsoftstream.com/video/baf0b12e-d6b8-4148-bb61-1e66121db9e7",    "Refusals, failures, failure refinement, liveness"],
+         [  "41", "https://web.microsoftstream.com/video/9846b741-d6ea-4009-83ab-47673719999f",    "External vs internal choice, internal choice and traces, refusals and failures"],
+         [  "42", "https://web.microsoftstream.com/video/53f7577e-18f0-4514-a23c-8493cfdf8dad",    "Divergence, livelock, hiding, deadlock in depth, failure divergence refinement"],
+         [  "43", "https://web.microsoftstream.com/video/3d183bf8-e05a-4ab0-84aa-290c1382cb39",    "Petri net definition, semaphore example, dynamics and non-determinism, inhibitor arcs"],
+         [  "44", "https://web.microsoftstream.com/video/61330c43-ae10-47a7-9b96-c7527b9dddbb",    "Petri net analysis, reachabilty graph, boundedness, Karp-Miller algorithm, coverability tree"],
+         [  "45", "https://web.microsoftstream.com/video/ad8cb662-b623-47ef-99be-1bf815fad1c9",    "No Shared Clock & Scalar Time"],
+         [  "46", "https://www.ole.bris.ac.uk/bbcswebdav/courses/COMS20008_2022_TB-1/CONTENT_2022/LecturePDFs/coms20008me09.pdf", "No Shared Clock & Scalar Time [slides]"],
+         [  "47", "https://web.microsoftstream.com/video/d93dc54e-b23b-4630-a95f-aaac4e3aec86",    "Vector Clocks"],
+         [  "48", "https://www.ole.bris.ac.uk/bbcswebdav/courses/COMS20008_2022_TB-1/CONTENT_2022/LecturePDFs/coms20008me10.pdf", "Vector Clocks [slides]"],
+         [  "49", "https://web.microsoftstream.com/video/d2b8d145-c217-48a6-94ae-ac0a4b0fdf52", "Synchronisers"],
+         [  "50", "https://www.ole.bris.ac.uk/bbcswebdav/courses/COMS20008_2022_TB-1/CONTENT_2022/LecturePDFs/coms20008me11.pdf", "Synchronisers [slides]"],
+         [  "51", "https://web.microsoftstream.com/video/59c43126-44ee-49c7-a38c-f0a6b914038b", "Leader Elections"],
+         [  "52", "https://www.ole.bris.ac.uk/bbcswebdav/courses/COMS20008_2022_TB-1/CONTENT_2022/LecturePDFs/coms20008me12.pdf", "Leader Elections [slides]"],
+         [  "53", "https://web.microsoftstream.com/video/96e9e57b-f6be-4035-8bfc-e963bca91f0d", "Distributed Systems as Graphs"],
+         [  "54", "https://www.ole.bris.ac.uk/bbcswebdav/courses/COMS20008_2022_TB-1/CONTENT_2022/LecturePDFs/coms20008me13.pdf", "Distributed Systems as Graphs [slides]"],
+         [  "55", "https://web.microsoftstream.com/video/2036568e-8345-4a73-9b1c-a1107ee09800", "Spanning Tree Algorithms"],
+         [  "56", "https://www.ole.bris.ac.uk/bbcswebdav/courses/COMS20008_2022_TB-1/CONTENT_2022/LecturePDFs/coms20008me14.pdf", "Spanning Tree Algorithms [slides]"],
+         [  "57", "https://web.microsoftstream.com/video/5b75b58c-eb93-45ce-a769-ff3fdbb30785", "The Byzantine Generals Problem"],
+         [  "58", "https://www.ole.bris.ac.uk/bbcswebdav/courses/COMS20008_2022_TB-1/CONTENT_2022/LecturePDFs/coms20008me15.pdf", "The Byzantine Generals Problem [slides]"],
+         [  "59", "https://web.microsoftstream.com/video/3db1b94a-fd82-458d-9c36-ddd1db6de0f3", "The Byzantine Generals Solutions"],
+         [  "60", "https://www.ole.bris.ac.uk/bbcswebdav/courses/COMS20008_2022_TB-1/CONTENT_2022/LecturePDFs/coms20008me16.pdf", "The Byzantine Generals Solutions [slides]"],
+		 [  "61", "https://teams.microsoft.com/l/meetup-join/19%3a0yhriMokwoi4DGeQsfy43pKFONuFDBQ7B17pb00UjtI1%40thread.tacv2/1632231907413?context=%7b%22Tid%22%3a%22b2e47f30-cd7d-4a4e-a5da-b18cf1a4151b%22%2c%22Oid%22%3a%22dd2ed894-7bfc-4ec4-9dc0-91d4709b4272%22%7d", "Live Q&amp;A"],
+		 [  "62", "https://teams.microsoft.com/l/meetup-join/19%3a0yhriMokwoi4DGeQsfy43pKFONuFDBQ7B17pb00UjtI1%40thread.tacv2/1632232311090?context=%7b%22Tid%22%3a%22b2e47f30-cd7d-4a4e-a5da-b18cf1a4151b%22%2c%22Oid%22%3a%22dd2ed894-7bfc-4ec4-9dc0-91d4709b4272%22%7d", "Lab 1"],
+		 [  "63", "https://teams.microsoft.com/l/meetup-join/19%3a0yhriMokwoi4DGeQsfy43pKFONuFDBQ7B17pb00UjtI1%40thread.tacv2/1632232738991?context=%7b%22Tid%22%3a%22b2e47f30-cd7d-4a4e-a5da-b18cf1a4151b%22%2c%22Oid%22%3a%22dd2ed894-7bfc-4ec4-9dc0-91d4709b4272%22%7d", "Lab 2"]
+		 
+     ];
+
+     //TILO'S RENDERING CODE
+     var c = currentWeek,
+         s = startWeekNum,
+         t = totalWeeks,
+         p = activityNum,
+         pp = columnNum,
+         b = bkgColour,
+         o = embossColour,
+         v = fontSizePix,
+         ic = inactColour,
+         cw = extendCats,
+         tc = titleBColour,
+         to = titleColour,
+         f = "#FFFFFF",
+         x = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+     function on(i) {
+         var x = document.getElementById(i);
+         x.style.display = "block";
+     }
+     function off(i) {
+         var x = document.getElementById(i);
+         x.style.display = "none";
+     }
+     function tog(i) {
+         var x = document.getElementById(i);
+         if (x.style.display == "none") {
+             x.style.display = "block";
+         } else {
+             x.style.display = "none";
+         }
+     }
+     function e(i) {
+         document.write(i);
+     }
+     function r(i) {
+         return "<tr>" + i + "<\/tr>";
+     }
+     function g(i) {
+         return '<table width="100%" border="0" cellpadding="2" cellspacing="0"><tbody>' + i + "<\/tbody><\/table>";
+     }
+     function dd(i, c, n, m, q) {
+         return '<td width="' + m.toString() + '%" height="0" colspan="' + n.toString() + '" valign="' + q + '" bgcolor="' + c + '"><div style="font-size:' + v.toString() + 'px">' + i + "<\/div><\/td>";
+     }
+     function d(i, c, n, m) {
+         return dd(i, c, n, m, "top");
+     }
+     function rr(i, kk) {
+         var ii = "";
+         for (k = 0; k < pp; k++) {
+             if (cw.includes(a[i * p + k + kk - pp][0])) {
+                 ii = ii + d("", o, 1, 0) + d("", b, 1, 0) + d("", y[parseInt(a[i * p + k + kk - pp][0])][2], 1, 0);
+             } else ii = ii + d("", o, 1, 0) + d("", b, 2, 0);
+         }
+         return "<tr>" + d("", o, 1, 0) + d("", b, 1, 0) + ii + d("", b, 1, 0) + d("", o, 1, 0) + "<\/tr>";
+     }
+     function z(i) {
+         return dd(
+             '<div style="font-size:' + (v + 3).toString() + 'px;transform:rotate(270deg);"><strong><font color="' + o + '">Week<\/font><font color="' + b + '">.<\/font><font color="' + o + '">' + i + "<\/font><\/strong><\/div>",
+             b,
+             1,
+             0,
+             "middle"
+         );
+     }
+     function u(i) {
+         var uu = "'";
+         return r(d("", o, 1, 0) + d("", tc, 3, 0) + d('<div style="font-size:' + (v + 3).toString() + 'px"><strong><font color="' + to + '">' + title + "<\/font><\/strong><\/div>", tc, i - 2, 0) + d("", o, 1, 0));
+     }
+     function uu(i) {
+         if (headerOn == 0) return "";
+         var uuu = "'";
+         return (
+             r(d("", o, 1, 0) + d("", tc, 1, 0) + d("", o, 2 + 3 * pp, 0)) +
+             r(
+                 d("", o, 1, 0) +
+                 d("", tc, 1, 0) +
+                 d("", o, 1, 0) +
+                 d("", b, 1, 0) +
+                 d('<div style="font-size:' + (v + 3).toString() + 'px"><strong><font color="' + to + '">' + header1 + "<\/font><\/strong><\/div>", b, 1, 0) +
+                 d("", o, 1, 0) +
+                 d('<div style="font-size:' + (v + 3).toString() + 'px"><strong><font color="' + to + '">' + header2 + "<\/font><\/strong><\/div>", b, 5, 0) +
+                 d("", o, 1, 0) +
+                 d('<div style="font-size:' + (v + 3).toString() + 'px"><strong><font color="' + to + '">' + header3 + "<\/font><\/strong><\/div>", b, i - 10, 0) +
+                 d("", o, 1, 0)
+             )
+         );
+     }
+     function xx(i) {
+         if (y[parseInt(a[i][0])][3] == "1") return x[parseInt(a[i][0])].toString() + ":";
+         else return "";
+     }
+     function mmm(i) {
+         var ii = a[i][1] + '<br/><div style="font-size:' + (v + 3).toString() + 'px"><strong>' + y[parseInt(a[i][0])][1] + " " + xx(i) + '<\/strong><\/div><a target="_blank" href="' + a[i][3] + '"><strong>' + a[i][2] + "<\/strong><\/a>";
+         if ((i + 1) / p - 1 > c - s)
+             ii =
+                 '<font color="' +
+                 ic +
+                 '">' +
+                 a[i][1] +
+                 '<\/font><br/><div style="font-size:' +
+             (v + 3).toString() +
+                 'px"><font color="' +
+                 ic +
+                 '"><strong>' +
+                 y[parseInt(a[i][0])][1] +
+                 " " +
+                 xx(i) +
+                 '<\/strong><\/font><\/div><strong><font color="' +
+                 ic +
+                 '">' +
+                 a[i][2] +
+                 "<\/font><\/strong>";
+         return ii;
+     }
+     function gg(i, k) {
+         var ii = d("", o, 1, 0);
+         for (j = 0; j < pp; j++) {
+             if (i * p + j + k - pp < i * p + p) {
+                 if (cw.includes(a[i * p + j + k - pp][0])) {
+                     ii = ii + d("", b, 1, 0) + d("", y[parseInt(a[i * p + j + k - pp][0])][2], 1, 0);
+                     if (j == pp - 1) ii = ii + d("", b, 1, 0);
+                     else ii = ii + d("", o, 1, 0);
+                 } else ii = ii + d("", o, 3, 0);
+             } else ii = ii + d("", o, 3, 0);
+         }
+         return ii + d("", o, 1, 0);
+     }
+     function zz(i) {
+         var k,
+             m = "";
+
+         for (k = 0; k < a[i][5].length; k++) {
+             m = m + '<a target="_blank" href="' + files[a[i][5][k]][1] + '"><i>' + files[a[i][5][k]][2] + "<\/i><\/a>";
+             if (k + 1 < a[i][5].length) m = m + "<br/>";
+
+         }
+
+         return m;
+     }
+     function mm(i) {
+         if ((i + 1) / p - 1 > c - s) return "";
+         var uu = "'";
+         var m = "";
+         if (y[parseInt(a[i][0])][4] != "" && a[i][4]) m = m + '<a target="_blank" href="' + a[i][4] + '">' + y[parseInt(a[i][0])][4] + "<\/a>";
+         if (y[parseInt(a[i][0])][4] != "" && y[parseInt(a[i][0])][5] != "") m = m + ", ";
+         if (y[parseInt(a[i][0])][5] != "") m = m + '<a href="javascript:tog(' + uu + "l" + i.toString() + uu + ')">' + y[parseInt(a[i][0])][5] + "<\/a>";
+         if (y[parseInt(a[i][0])][4] + y[parseInt(a[i][0])][5] == "") m = "";
+         else m = "(" + m + ")";
+         m =
+             m +
+             '<div id="l' +
+             i.toString() +
+             '"><hr/><table width="100%" border="0" cellpadding="2" cellspacing="0"><tbody><tr><td width="0%" valign="top"><u><i>' +
+             y[parseInt(a[i][0])][5] +
+             ':<\/i><\/u><\/td><td width="100%" valign="top">' +
+             zz(i) +
+             "<\/td><\/tr><\/tbody><\/table><\/div>";
+         return m;
+     }
+     function w(i) {
+         x[parseInt(a[i][0])]++;
+         return d(mmm(i) + "<br/>" + mm(i), y[parseInt(a[i][0])][2], 1, 100 / pp);
+     }
+     function m() {
+         if ((1.0 * p) / pp > 2) pp = p / 2;
+         if (pp > p) pp = p;
+         if (pp < 4) header = 0;
+         var i,
+             j = r(d("", o, 4 + 3 * pp, 0)) + u(1 + 3 * pp) + uu(1 + 3 * pp);
+         for (i = 0; i < t; i++) {
+             var hh = 1;
+             var hhh = 0;
+             var h = d("", o, 1, 0) + z((i + s).toString());
+             for (k = 0; k < p; k++) {
+                 hhh++;
+                 h = h + d("", o, 1, 0) + d("", b, 1, 0) + w(i * p + k);
+                 if (k + 1 == pp * hh && k + 1 < p) {
+                     j = j + r(d("", o, 1, 0) + d("", o, 1, 0) + gg(i, pp * hh)) + rr(i, pp * hh) + r(h + d("", b, 1, 0) + d("", o, 1, 0));
+                     hh++;
+                     h = d("", o, 1, 0) + d("", b, 1, 0) + d("", o, 1, 0) + d("", b, 1, 0) + w(i * p + k);
+                 }
+             }
+             var bb = o;
+             if (hh > 1) bb = b;
+             while (hhh + 1 < hh * pp) {
+                 h = h + d("", o, 1, 0) + d("", b, 2, 0);
+                 hhh++;
+             }
+             j = j + r(d("", o, 1, 0) + d("", bb, 1, 0) + gg(i, pp * hh)) + rr(i, pp * hh) + r(h + d("", b, 1, 0) + d("", o, 1, 0));
+         }
+         e(g(j + r(d("", o, 4 + 3 * pp, 0)) + r(d("", b, 4 + 3 * pp, 0))));
+     }
+     function make() {
+         m();
+         var i;
+         for (i = 0; i < t * p; i++) off("l" + i.toString());
+     }
+
+    </script>
+</head>
+<body>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-J794G6LM93"></script>
+    <script language="javascript">
+    make();
+	window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-J794G6LM93');
+    </script>
+
+</body>
+</html>
