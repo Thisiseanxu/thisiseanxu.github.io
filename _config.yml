@@ -1,0 +1,13 @@
+title: 上树的学习资源站
+remote_theme: pmarsceill/just-the-docs
+compress_html:
+  ignore:
+    envs: all
+  blanklines: true
+kramdown:
+  syntax_highlighter_opts:
+    block:
+      line_numbers: true
+aux_links:
+  "访问谷歌硬盘以获取学习资源":
+    - "https://www.ole.bris.ac.uk/ultra/courses/_257216_1/cl/outline"
