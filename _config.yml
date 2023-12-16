@@ -1,6 +1,5 @@
 title: 上树的CS学习资源站
 favicon_ico: "/assets/images/favicon.ico"
-logo: "/assets/images/logo.png"
 remote_theme: pmarsceill/just-the-docs
 compress_html:
   ignore:
