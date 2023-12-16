@@ -1,6 +1,5 @@
 title: 上树的CS学习资源站
 favicon_ico: "/assets/images/favicon.ico"
-logo: "/assets/images/logo.png"
 remote_theme: pmarsceill/just-the-docs
 compress_html:
   ignore:
@@ -10,6 +9,10 @@ kramdown:
   syntax_highlighter_opts:
     block:
       line_numbers: true
+callouts:
+  warning:
+    title: 注意
+    color: yellow
 aux_links:
   "访问谷歌硬盘获取更多资源":
     - "https://drive.google.com/drive/folders/1y6jwn1JOWwHpGe560MKdPGGsYNJkBegz"
