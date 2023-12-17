@@ -21,16 +21,12 @@ nav_external_links:
     url: https://drive.google.com/drive/folders/1meCBv53Br-yNHnF8-SY9zf4AiRAXPTUj
     hide_icon: false # set to true to hide the external link icon - defaults to false
     opens_in_new_tab: true # set to true to open this link in a new tab - defaults to false
-  - title: CSA 视频课（更新中）
-    url: https://drive.google.com/drive/folders/1mn-PaAuGoXsQ2klWw9dm9bkhSOuZA_57
-    hide_icon: false # set to true to hide the external link icon - defaults to false
-    opens_in_new_tab: true # set to true to open this link in a new tab - defaults to false
-  - title: PLC 中文版参考页（更新中）
-    url: ./plc-cn/
-    hide_icon: true # set to true to hide the external link icon - defaults to false
-    opens_in_new_tab: true # set to true to open this link in a new tab - defaults to false
   - title: Algo2 课程主页
     url: https://uob-cs-algorithms-ii.github.io/
+    hide_icon: false # set to true to hide the external link icon - defaults to false
+    opens_in_new_tab: true # set to true to open this link in a new tab - defaults to false
+  - title: CSA 视频课（更新中）
+    url: https://drive.google.com/drive/folders/1mn-PaAuGoXsQ2klWw9dm9bkhSOuZA_57
     hide_icon: false # set to true to hide the external link icon - defaults to false
     opens_in_new_tab: true # set to true to open this link in a new tab - defaults to false
   - title: CSA 课程主页
@@ -39,5 +35,9 @@ nav_external_links:
     opens_in_new_tab: true # set to true to open this link in a new tab - defaults to false
   - title: PLC reference 参考页
     url: https://uob-coms20007.github.io/reference/
+    hide_icon: false # set to true to hide the external link icon - defaults to false
+    opens_in_new_tab: true # set to true to open this link in a new tab - defaults to false
+  - title: PLC 中文版参考页（更新中）
+    url: ./plc-cn/
     hide_icon: false # set to true to hide the external link icon - defaults to false
     opens_in_new_tab: true # set to true to open this link in a new tab - defaults to false
